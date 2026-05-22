@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry Bestie 🥺</title>
+    <!-- Modern Font and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Swiper.js for 200 Slides -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <style>
+        :root {
+            --primary: #ff4d6d;
+            --secondary: #ffb3c1;
+            --dark: #2b2d42;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: white;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Modern Glassmorphism Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 2s ease;
+        }
+
+        h1 { font-size: 3rem; color: var(--secondary); text-shadow: 0 0 20px var(--primary); }
+        p { font-size: 1.2rem; opacity: 0.8; }
+
+        /* Music Controls */
+        .music-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            margin: 20px auto;
+            width: fit-content;
+        }
+
+        /* 200 Slides Gallery */
+        .gallery-section { padding: 50px 0; }
+        .swiper {
+            width: 90%;
+            max-width: 600px;
+            height: 400px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            color: #333;
+            font-size: 5rem;
+            border-radius: 25px;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 25px;
+        }
+        .slide-text {
+            position: absolute;
+            bottom: 20px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        /* 250,000 Sorry Wall */
+        .sorry-wall-container {
+            background: var(--glass);
+            margin: 50px 0;
+            padding: 20px;
+            border-radius: 30px;
+            max-height: 500px;
+            overflow-y: auto;
+            text-align: justify;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .sorry-wall-container::-webkit-scrollbar { width: 5px; }
+        .sorry-wall-container::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+        
+        .sorry-text {
+            font-size: 10px;
+            line-height: 1.2;
+            letter-spacing: 1px;
+            color: var(--secondary);
+            opacity: 0.6;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px var(--primary);
+        }
+        button:hover { transform: scale(1.05); background: #ff758c; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .swiper { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header id="welcome">
+            <h1>I'm Sorry, Anjali... 🥺</h1>
+            <p>I know I messed up. Please listen to this song and look through these slides.</p>
+            <div class="music-card">
+                <p>🎵 Playing: Until I Found You</p>
+                <!-- Direct link to song audio -->
+                <audio id="bgMusic" loop controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <button onclick="document.getElementById('gallery').scrollIntoView()">Start Scrolling ↓</button>
+        </header>
+
+        <!-- Gallery Section (200 Slides) -->
+        <section class="gallery-section" id="gallery">
+            <h2>200 Reasons I'm Sorry</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper" id="slideWrapper">
+                    <!-- Slides will be generated by JavaScript -->
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-navigation"></div>
+            </div>
+        </section>
+
+        <!-- 2500 Sorry Wall -->
+        <section>
+            <h2>The 2500 "I'm Sorry" Wall</h2>
+            <p>I could say it a million times and it still wouldn't be enough.</p>
+            <div class="sorry-wall-container">
+                <div class="sorry-text" id="sorryWall">
+                    <!-- 2500 Sorrys generated here -->
+                    Loading my apologies...
+                </div>
+            </div>
+        </section>
+
+        <footer style="padding: 50px; opacity: 0.5;">
+            <p>Made with ❤️ for my favorite person.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // 1. Generate 200 Slides
+        const slideWrapper = document.getElementById('slideWrapper');
+        const emojis = ["🥺", "🙏", "😭", "💔", "🙇‍♂️", "😿", "🧸", "✨", "🫂", "💗"];
+        
+        for (let i = 1; i <= 200; i++) {
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide';
+            
+            // Alternating between pics and emojis
+            if (i % 2 === 0) {
+                slide.innerHTML = `
+                    <img src="https://picsum.photos/seed/${i + 100}/600/400" alt="Sorry Pic">
+                    <div class="slide-text">Slide ${i}: I'm so sorry ${emojis[i % emojis.length]}</div>
+                `;
+            } else {
+                slide.innerHTML = `
+                    <div>${emojis[i % emojis.length]}</div>
+                    <div class="slide-text">Slide ${i}: Please forgive me</div>
+                `;
+            }
+            slideWrapper.appendChild(slide);
+        }
+
+        // Initialize Swiper
+        const swiper = new Swiper(".mySwiper", {
+            effect: "cards",
+            grabCursor: true,
+            loop: true,
+            autoplay: { delay: 2000 },
+            pagination: { el: ".swiper-pagination" },
+        });
+
+        // 2. Generate 250,000 "Sorry" texts
+        // Using a loop to create a huge string efficiently
+        const sorryWall = document.getElementById('sorryWall');
+        let bigText = "";
+        const chunk = "I'm sorry ANJALI 🥺. ";
+        
+        // We generate in chunks to avoid crashing the browser tab
+        function generateSorry() {
+            let count = 0;
+            const target = 2500;
+            const batchSize = 500;
+            
+            function addBatch() {
+                for(let j = 0; j < batchSize && count < target; j++) {
+                    bigText += chunk;
+                    count++;
+                }
+                sorryWall.innerText = bigText;
+                if(count < target) {
+                    setTimeout(addBatch, 0); // Non-blocking generation
+                }
+            }
+            addBatch();
+        }
+        generateSorry();
+
+        // 3. Audio fix for modern browsers (Auto-play workaround)
+        window.addEventListener('click', () => {
+            const audio = document.getElementById('bgMusic');
+            if (audio.paused) audio.play();
+        }, { once: true });
+    </script>
+</body>
+</html>
